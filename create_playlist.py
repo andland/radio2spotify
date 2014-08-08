@@ -11,7 +11,7 @@ import scrape_songs
 #import webbrowser
 
 def create_playlist():
-    artists, titles = scrape_songs.scrape_cd1025_songs(10)
+    artists, titles = scrape_songs.scrape_wxrt_songs(5)
     if len(artists) != len(titles):
         raise Exception("Artists and titles don't match")
     
@@ -33,3 +33,6 @@ def create_playlist():
     return playlist_url
     
 #    webbrowser.open(playlist_url, new = 2)
+#if __name__ == "__main__":
+#    pl = create_playlist()
+#    print pl

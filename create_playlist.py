@@ -10,8 +10,12 @@ import urllib2
 import scrape_songs
 #import webbrowser
 
-def create_playlist():
-    artists, titles = scrape_songs.scrape_wxrt_songs(5)
+def create_playlist(station, songs = 10):
+    if station == "CD1025":
+        artists, titles = scrape_songs.scrape_cd1025_songs(songs)
+    elif station == "WXRT":
+        artists, titles = scrape_songs.scrape_wxrt_songs(songs)
+    
     if len(artists) != len(titles):
         raise Exception("Artists and titles don't match")
     

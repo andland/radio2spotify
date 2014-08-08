@@ -16,4 +16,5 @@ def index():
     print playlist_url
     return """ <iframe src={} >""".format(playlist_url)
 
-app.run()
+if __name__ == '__main__':
+    app.run()

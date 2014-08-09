@@ -42,7 +42,7 @@ def index():
   <option value="CD1025">CD1025</option>
   <option value="WXRT">WXRT</option>
 </select></div>
- <iframe src="%s" id="playlist">
+ <iframe src="%s" frameborder="0" allowtransparency="true" id="playlist"></iframe>
  
  
  """%playlist_url

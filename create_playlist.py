@@ -32,7 +32,7 @@ def create_playlist(station, songs = 10):
         except IndexError:
             print "Could not find " + artists[i] + " - " + titles[i]
     
-    playlist_base = "https://embed.spotify.com/?uri=spotify:trackset:RadioPlaylist:"
+    playlist_base = "https://embed.spotify.com/?uri=spotify:trackset:" + station + ":"
     playlist_url = playlist_base + ",".join(ids)
     return playlist_url
     

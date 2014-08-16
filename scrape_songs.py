@@ -66,6 +66,7 @@ def scrape_wxrt_songs(num = 50):
     titles.reverse()
     return artists, titles
 
+
 #if __name__ == "__main__":
 #    artists, titles = scrape_cd1025_songs()
 #    spotify_search_base = "https://api.spotify.com/v1/search?q="

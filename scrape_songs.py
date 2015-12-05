@@ -14,19 +14,21 @@ def scrape_cd1025_songs(num = 50):
     
     r  = requests.get(url)
     data = r.text
-    soup = BeautifulSoup(data)
-    table = soup.find("table")
+    soup = BeautifulSoup(data, "html.parser")
+    # table = soup.find("table")
     
     artists = []
     titles = []
     counter = 1
-    for row in table.findAll('tr')[1:]:
+    # for row in table.findAll('tr')[1:]:
+    for row in soup.find_all('tr')[1:]:
         col = row.findAll('td')
         artist = col[1].text
         title = col[2].text
+        artist = artist.replace("THE FOO FIGHTERS", "FOO FIGHTERS")
         title = title.replace("(BIG ROOM)", "")
-        artists.append(artist)
-        titles.append(title)
+        artists.append(artist.strip())
+        titles.append(title.strip())
         
         if counter >= num:
             break
@@ -43,15 +45,15 @@ def scrape_wxrt_songs(num = 50):
     
     r  = requests.get(url)
     data = r.text
-    soup = BeautifulSoup(data)
+    soup = BeautifulSoup(data, "html.parser")
     
     artists = []
     titles = []
     counter = 1
 	# use selectorGadget to get CSS selector info
-    for item in soup.select(".playlist_item_track_info"):
-        title = item.select(".track_title")
-        artist = item.select(".track_artist")
+    for item in soup.select(".track-info"):
+        title = item.select(".track-title")
+        artist = item.select(".track-artist")
 		# the info is between quotes
         artists.append(re.findall(r'\"(.+?)\"',str(artist))[1] )
         titles.append(re.findall(r'\"(.+?)\"',str(title))[1])

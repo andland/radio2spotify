@@ -2,7 +2,7 @@
 """
 Created on Thu Aug 07 21:08:10 2014
 
-@author: Andrew
+@author: Andrew Landgraf
 """
 
 import json

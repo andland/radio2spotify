@@ -2,7 +2,7 @@
 """
 Created on Fri Aug 08 17:17:33 2014
 
-@author: Andrew
+@author: Andrew Landgraf
 """
 
 from flask import Flask
@@ -19,6 +19,9 @@ def index():
     playlist_url = create_playlist("CD1025")
      
     return """
+    <html>
+    <head>
+    <title>Radio2Spotify</title>
     <script>
     function changeStation(){
     xmlhttp=new XMLHttpRequest();
@@ -37,14 +40,28 @@ def index():
   }
   
     </script>
+    </head>
+    
+    <body>
     <div>
-    <select onchange="changeStation()" id="selectOpt">
+    <h2 id='title'> Radio2Spotify </h2>
+    Station: <select onchange="changeStation()" id="selectOpt">
   <option value="CD1025">CD1025</option>
   <option value="WXRT">WXRT</option>
-</select></div>
- <iframe src="%s" width="300" height="380" frameborder="0" allowtransparency="true" id="playlist"></iframe>
+</select>
+<br>
+<iframe src="%s" width="300" height="380" frameborder="0" allowtransparency="true" id="playlist"></iframe>
+</div>
+
  
- 
+ <div class ='description'>
+        This app scrapes the latest songs played on your favorite radio station
+        and creates a Spotify playlist from them. This is meant for radio stations
+        that do not have online streaming available. The code for this app can 
+        be found on <a href="http://github.com">Github</a>.
+</div>
+</body>
+ </html>
  """%playlist_url
 
 if __name__ == '__main__':

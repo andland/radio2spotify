@@ -58,7 +58,7 @@ def index():
         This app scrapes the latest songs played on your favorite radio station
         and creates a Spotify playlist from them. This is meant for radio stations
         that do not have online streaming available. The code for this app can 
-        be found on <a href="http://github.com">Github</a>.
+        be found on <a href="https://github.com/andland/radio2spotify">Github</a>.
 </div>
 </body>
  </html>

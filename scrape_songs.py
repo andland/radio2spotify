@@ -26,6 +26,7 @@ def scrape_cd1025_songs(num = 50):
         artist = col[1].text
         title = col[2].text
         artist = artist.replace("THE FOO FIGHTERS", "FOO FIGHTERS")
+        artist = artist.replace("THE VIOLENT FEMMES", "VIOLENT FEMMES")
         title = title.replace("(BIG ROOM)", "")
         artists.append(artist.strip())
         titles.append(title.strip())
